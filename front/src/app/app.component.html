@@ -1,7 +1,20 @@
 @if (contacts$ | async; as contacts) {
   @if(contacts.length>0) {
     @for (item of contacts; track $index) {
-      <h5 class="card-title">{{item.name}}</h5>
+      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+        <div class="mb-2">
+          <h5 class="text-lg font-semibold">{{item.name}}</h5>
+        </div>
+        <div class="mb-2">
+          <h5 class="text-sm text-gray-600">{{item.email}}</h5>
+        </div>
+        <div class="mb-2">
+          <h5 class="text-sm text-gray-600">{{item.phoneNumber}}</h5>
+        </div>
+        <div class="mb-2">
+          <h5 class="text-sm text-gray-600">{{item.favorite}}</h5>
+        </div>
+      </div>
     }
   }@else {
     <div class="alert alert-warning" role="alert">

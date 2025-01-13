@@ -7,6 +7,7 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, HttpClientModule, AsyncPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -18,7 +19,7 @@ export class AppComponent {
   contacts$ = this.getContacts();
 
   private getContacts() :Observable<Contact[]>{
-    return this.http.get<Contact[]>('http://localhost:5225/api/Contacts');
+    return this.http.get<Contact[]>('https://localhost:7000/api/Contacts');
   }
 }
 
