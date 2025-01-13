@@ -35,3 +35,4 @@ C:\Users\aleks\Documents\GitHub\Phonebook\Phonebook\obj\Debug\net9.0\ref\Phonebo
 C:\Users\aleks\Documents\GitHub\Phonebook\Phonebook\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\aleks\Documents\GitHub\Phonebook\Phonebook\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\aleks\Documents\GitHub\Phonebook\Phonebook\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\aleks\Documents\GitHub\Phonebook\Phonebook\obj\Debug\net9.0\Phonebook.sourcelink.json

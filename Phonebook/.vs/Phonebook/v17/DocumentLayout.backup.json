@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\aleks\\Documents\\GitHub\\Phonebook\\Phonebook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F42FDC42-0752-4271-8F90-93CF7422F122}|Phonebook.csproj|c:\\users\\aleks\\documents\\github\\phonebook\\phonebook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F42FDC42-0752-4271-8F90-93CF7422F122}|Phonebook.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F42FDC42-0752-4271-8F90-93CF7422F122}|Phonebook.csproj|c:\\users\\aleks\\documents\\github\\phonebook\\phonebook\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F42FDC42-0752-4271-8F90-93CF7422F122}|Phonebook.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{F42FDC42-0752-4271-8F90-93CF7422F122}|Phonebook.csproj|c:\\users\\aleks\\documents\\github\\phonebook\\phonebook\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F42FDC42-0752-4271-8F90-93CF7422F122}|Phonebook.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\aleks\\Documents\\GitHub\\Phonebook\\Phonebook\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\aleks\\Documents\\GitHub\\Phonebook\\Phonebook\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-13T00:09:27.374Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\aleks\\Documents\\GitHub\\Phonebook\\Phonebook\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\aleks\\Documents\\GitHub\\Phonebook\\Phonebook\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\Documents\\GitHub\\Phonebook\\Phonebook\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\aleks\\Documents\\GitHub\\Phonebook\\Phonebook\\Controllers\\WeatherForecastController.cs*",
+              "RelativeToolTip": "Controllers\\WeatherForecastController.cs*",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwCMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T00:03:33.66Z",
+              "WhenOpened": "2025-01-13T00:38:09.458Z",
               "EditorCaption": ""
             }
           ]
