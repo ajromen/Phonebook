@@ -1,24 +1,117 @@
-@if (contacts$ | async; as contacts) {
-  @if(contacts.length>0) {
-    @for (item of contacts; track $index) {
-      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-        <div class="mb-2">
-          <h5 class="text-lg font-semibold">{{item.name}}</h5>
+<div class="flex h-screen p-5 justify-between">
+  <div class="overflow-auto w-[49.5%] shadow-md rounded-lg bg-stone-950">
+    <form (ngSubmit)="onFormSubmit()" [formGroup]="contactsForm" class="px-5 flex flex-col justify-between h-[90%]">
+      <div>
+        <h1 class="py-10 font-extrabold text-5xl flex justify-between">
+          <span>Phonebook</span>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" version="1.1" id="Layer_1" viewBox="0 0 337.559 337.559" xml:space="preserve" height="45">
+            <path d="M337.559,67.704v-28.33c0-17.506-14.242-31.748-31.748-31.748h-54.572c-4.932-3.021-10.727-4.765-16.922-4.765H32.5     C14.58,2.86,0,17.44,0,35.36v266.838c0,17.921,14.58,32.5,32.5,32.5h201.816c6.196,0,11.992-1.745,16.925-4.767h54.569     c17.506,0,31.748-14.242,31.748-31.748v-28.33c0-9.715-4.391-18.42-11.287-24.248c6.896-5.828,11.287-14.533,11.287-24.248     v-28.331c0-9.715-4.391-18.42-11.287-24.248c6.896-5.828,11.287-14.533,11.287-24.248V116.2c0-9.715-4.391-18.42-11.287-24.248     C333.168,86.123,337.559,77.418,337.559,67.704z M251.816,302.198c0,9.649-7.851,17.5-17.5,17.5H32.5     c-9.649,0-17.5-7.851-17.5-17.5V35.36c0-9.649,7.851-17.5,17.5-17.5h201.816c9.649,0,17.5,7.851,17.5,17.5V302.198z      M322.559,298.184c0,9.235-7.513,16.748-16.748,16.748h-41.595c1.673-3.912,2.601-8.216,2.601-12.733v-49.093h38.994     c9.235,0,16.748,7.513,16.748,16.748V298.184z M322.559,221.357c0,9.235-7.513,16.748-16.748,16.748h-38.994v-61.827h38.994     c9.235,0,16.748,7.513,16.748,16.748V221.357z M322.559,144.53c0,9.235-7.513,16.748-16.748,16.748h-38.994V99.451h38.994     c9.235,0,16.748,7.513,16.748,16.748V144.53z M322.559,67.704c0,9.235-7.513,16.748-16.748,16.748h-38.994V35.36     c0-4.518-0.929-8.822-2.602-12.735h41.596c9.235,0,16.748,7.513,16.748,16.748V67.704z"/>
+            <rect x="40.413" y="230.024" width="185.991" height="15"/>
+            <path d="M66.891,206.201h133.035c2.263,0,4.405-1.021,5.829-2.78c1.424-1.759,1.978-4.066,1.507-6.279     c-3.595-16.907-13.071-32.176-26.474-43.02c8.782-10.818,13.689-24.438,13.689-38.522c0-33.674-27.396-61.07-61.07-61.07     s-61.07,27.396-61.07,61.07c0,14.084,4.908,27.704,13.689,38.522c-13.402,10.844-22.878,26.112-26.472,43.02     c-0.471,2.213,0.083,4.521,1.507,6.279C62.486,205.18,64.628,206.201,66.891,206.201z M101.343,161.584     c1.988-1.245,3.279-3.35,3.488-5.687c0.209-2.337-0.687-4.637-2.422-6.216c-9.579-8.718-15.072-21.14-15.072-34.081     c0-25.403,20.667-46.07,46.07-46.07c25.403,0,46.07,20.667,46.07,46.07c0,12.941-5.494,25.363-15.072,34.081     c-1.735,1.579-2.631,3.879-2.422,6.216c0.209,2.337,1.5,4.441,3.488,5.687c11.154,6.989,19.735,17.49,24.42,29.618H76.923     C81.608,179.074,90.189,168.571,101.343,161.584z"/>
+            <rect x="63.83" y="259.688" width="139.156" height="15"/>
+          </svg>
+          
+        </h1>
+
+        <div class="mt-2">
+          <input type="text" placeholder="Name" class="w-full p-2 border-b-2 border-gray-400 rounded-none mt-2 bg-stone-950 focus:outline-none focus:border-gray-100" formControlName="name">
+          @if(contactsForm.controls.name.invalid && pisiEror){
+            <div class="text-red-500 text-sm mt-1">Name is required</div>
+          }
         </div>
-        <div class="mb-2">
-          <h5 class="text-sm text-gray-600">{{item.email}}</h5>
+        <div class="mt-2">
+          <input type="email" placeholder="Email" class="w-full p-2 border-b-2 border-gray-400 rounded-none mt-2 bg-stone-950 focus:outline-none focus:border-gray-100" formControlName="email">
         </div>
-        <div class="mb-2">
-          <h5 class="text-sm text-gray-600">{{item.phoneNumber}}</h5>
+        <div class="mt-2">
+          <input type="text" placeholder="Phone Number" class="w-full p-2 border-b-2 border-gray-400 rounded-none mt-2 bg-stone-950 focus:outline-none focus:border-gray-100" formControlName="phoneNumber">
+          @if(contactsForm.controls.phoneNumber.invalid && pisiEror){
+            <div class="text-red-500 text-sm mt-1">Phone Number is required</div>
+          }
         </div>
-        <div class="mb-2">
-          <h5 class="text-sm text-gray-600">{{item.favorite}}</h5>
+        <div class="mt-2 flex">
+          <label class="font-bold items-center flex" for="favorite">
+            <input type="checkbox" formControlName="favorite"  class="h-4 w-4">
+            <span class="ml-2">Favorite</span>
+          </label>
         </div>
       </div>
-    }
-  }@else {
-    <div class="alert alert-warning" role="alert">
-      No contacts found
-    </div>
-  }
-}
+      <div class="mt-2 h-10">
+        <button type="submit" class="bg-green-500 h-full text-black px-4 py02 rounded-md w-full" >Add Contact</button>
+        @if(pisiEror){
+          <div class="text-red-500 text-sm mt-1">You have to fill all required fields</div>
+        }
+      </div>
+    </form>
+  </div>
+  <div class="overflow-auto w-[49.5%] shadow-md rounded-lg bg-stone-950">
+      @if(contacts.length>0) {
+        <ul>
+        @for (contact of contacts; track $index) {
+          <li class="p-3 pl-4 bg-stone-950 border-b-2 border-slate-200 shadow-md rounded-lg  mb-1">
+            <div class="flex justify-between">
+              <span class="font-bold text-3xl">{{contact.name}}</span>
+              @if(contact.favorite){
+                <button type="button" (click)="switchFavorite(contact.id)">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                  </svg>
+                  
+                </button>
+              }@else {
+                <button type="button" (click)="switchFavorite(contact.id)">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                  </svg>
+                </button>
+              }
+            </div>
+            <div class="flex gap-10">
+              @if(contact.email){
+                <span class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                  </svg>
+                  
+                  <span class="ms-2">{{contact.email}}</span>
+                </span>
+              }
+              <span class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-green-500">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                </svg>
+                
+                <span class="ms-2">{{contact.phoneNumber}}</span>
+              </span>
+            </div>
+
+            <div class="mt-4 flex w-full gap-4">
+              <a class="bg-green-500 py-2 px-4 rounded-sm cursor-pointer" href="tel:{{contact.phoneNumber}}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" />
+                </svg>
+              </a>
+
+            <button class="bg-red-500 py-2 px-4 rounded-sm" type="button" (click)="deleteContact(contact.id)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+              </svg>
+              
+            </button>
+            </div>
+
+          </li>
+        }
+        </ul>
+      }@else {
+        <div class="flex items-center justify-center h-96 text-3xl text-gray-500">
+          No contacts found
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-20 text-red-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+          </svg>
+        </div>
+      }
+    
+  </div>
+</div>
+
+

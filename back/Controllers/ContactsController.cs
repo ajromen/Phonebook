@@ -20,7 +20,7 @@ namespace Phonebook.Controllers
         [HttpGet]
         public IActionResult Get() 
         {
-            var contacts = _context.Contacts.ToList();
+            var contacts = _context.Contacts.OrderBy(c => !c.Favorite).ToList();
             return Ok(contacts);
         }
 
@@ -39,6 +39,34 @@ namespace Phonebook.Controllers
             _context.SaveChanges();
 
             return Ok(domainModelContact);
+        }
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public IActionResult Delete(Guid id)
+        {
+            var contact = _context.Contacts.FirstOrDefault(x => x.Id == id);
+            if (contact == null)
+            {
+                return BadRequest();
+            }
+            _context.Contacts.Remove(contact);
+            _context.SaveChanges(true);
+            return Ok();
+        }
+
+        [HttpPost("switchFavorite/{id:guid}")]
+        public IActionResult SwitchFavorite(Guid id)
+        {
+            var contact = _context.Contacts.FirstOrDefault(x => x.Id == id);
+            if (contact == null)
+            {
+                return BadRequest();
+            }
+            contact.Favorite = !contact.Favorite;
+            _context.Contacts.Update(contact);
+            _context.SaveChanges(true);
+            return Ok();
         }
     }
 }
