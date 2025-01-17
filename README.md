@@ -1,2 +1,2 @@
 # Phonebook
- ASP.NET Core, Angular phonebook web app
+ Asp.Net Core, Angular phonebook web app
